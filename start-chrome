@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' ~/.config/chromium/'Local State'
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/; s/"exit_type":"[^"]\+"/"exit_type":"Normal"/' ~/.config/chromium/Default/Preferences
+
+[[ -z "$1" ]] && chromium-browser --noerrdialogs --check-for-update-interal=31536000 --no-first-run --kiosk $WEBSITE_URL || \
+chromium-browser --noerrdialogs --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT' --no-first-run --kiosk $1

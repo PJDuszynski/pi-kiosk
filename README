@@ -1,0 +1,35 @@
+Instructions:
+1. Ensure Raspbery Pi config options are set
+2. Connect to Wifi Network and save password
+3. Run set-website
+4. Everything should work
+
+If you need to change the website URL,
+SSH into the PI, run `set-website` again and then `sudo reboot`
+
+`set-website`
+Prompts the user for a website then sets the result as an environment variable in /etc/environment. 
+Note after this is set, it will sleep 4 seconds then launch `start-chrome`
+It's best to reboot after changing the website to ensure 
+/etc/environment has been properly loaded
+
+`start-chrome <WEBSITE_URL (optional)>`
+Starts chrome with the perferred website, 
+If the first argument is not specified, defaults to the WEBSITE_URL variable 
+that was in /etc/environment on login
+
+`autostart`
+A copy of the autostart script found in /etc/xdg/lxsession/LXDE-pi for reference
+
+
+To run scripts without needing to source them:
+```
+sudo ln -s /home/pi/scripts/set-website /usr/local/bin/set-website
+sudo ln -s /home/pi/scripts/start-chrome /usr/local/bin/start-chrome
+```
+
+raspi-config options
+- SSH enabled
+- Wait for network on boot enabled
+- Boot Login - Desktop Autologin
+- Display options - underscan disabled

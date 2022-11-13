@@ -1,0 +1,10 @@
+#Default Profile settings, do not change these lines
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+
+#Turn off all power saving options etc
+@xset s off
+@xset -dpms
+@xset s noblank
+
+lxterminal -e start-chrome
