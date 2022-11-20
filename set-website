@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 echo -n "Enter website url: "
-read url
+read -r url
 
 [[ -z "$url" ]] && echo "ERROR: website url must not be blank" && exit 1
 
-website_url_exists="$(cat /etc/environment | grep WEBSITE_URL)"
+website_url_exists="$(grep WEBSITE_URL /etc/environment)"
 
 if [[ -z "$website_url_exists" ]]; then
 	echo "No Website URL found, writing new environment variable"
@@ -15,8 +15,8 @@ else
 	sudo sed -i "s{WEBSITE_URL=.*{WEBSITE_URL=$url{g" /etc/environment
 fi
 
-results="$(cat /etc/environment | grep $url)"
-if [[ ! -z "$results" ]]; then
+results="$(grep "$url" /etc/environment)"
+if [[ -n "$results" ]]; then
 	# Website URL will fail to write if it contains '{'
 	echo "Environment Variable: WEBSITE_URL has been successfully set to $url in /etc/environment" 
 else 
@@ -25,4 +25,4 @@ else
 fi
 
 sleep 5
-start-chrome $url
+start-chrome "$url"
