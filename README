@@ -21,12 +21,8 @@ that was in /etc/environment on login
 `autostart`
 A copy of the autostart script found in /etc/xdg/lxsession/LXDE-pi for reference
 
-
-To run scripts without needing to source them:
-```
-sudo ln -s /home/pi/scripts/set-website /usr/local/bin/set-website
-sudo ln -s /home/pi/scripts/start-chrome /usr/local/bin/start-chrome
-```
+`setup`
+Run this script to create symbolic links and transfer the autostart file.
 
 raspi-config options
 - SSH enabled

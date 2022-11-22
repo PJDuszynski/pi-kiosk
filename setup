@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+wd="$(pwd)"
+
+sudo ln -s "$wd/set-website" /usr/bin/set-website
+sudo ln -s "$wd/start-chrome" /usr/bin/start-chrome
+
+sudo cp "$wd/autostart" "/etc/xdg/lxsession/LXDE-pi/autostart"
+sudo chown root:root "/etc/xdg/lxsession/LXDE-pi/autostart"
