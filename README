@@ -1,8 +1,9 @@
 Instructions:
 1. Ensure Raspbery Pi config options are set
 2. Connect to Wifi Network and save password
-3. Run set-website
-4. Everything should work
+3. Run setup script
+4. Run set-website
+5. Everything should work
 
 If you need to change the website URL,
 SSH into the PI, run `set-website` again and then `sudo reboot`
@@ -24,8 +25,7 @@ A copy of the autostart script found in /etc/xdg/lxsession/LXDE-pi for reference
 `setup`
 Run this script to create symbolic links and transfer the autostart file.
 
-raspi-config options
-- SSH enabled
+## raspi-config options
 - Wait for network on boot enabled
 - Boot Login - Desktop Autologin
 - Display options - underscan disabled
